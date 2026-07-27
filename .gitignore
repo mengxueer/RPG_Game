@@ -1,0 +1,22 @@
+# UE 编译产物
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# 插件编译产物
+Plugins/*/Binaries/
+Plugins/*/Intermediate/
+
+# VS 工程文件（其他人可以从 .uproject 重新生成）
+*.sln
+*.suo
+*.user
+*.userprefs
+*.git
+# 蓝图调试符号
+*.pdb
+*.idea
+*.vs
+# 日志
+Saved/Logs/
