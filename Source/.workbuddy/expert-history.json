@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "sessions": {
+    "b5e5348066554063af0a951bf393c912": [
+      {
+        "expertId": "UnrealSystemEngineer",
+        "name": "虚幻通",
+        "profession": "Unreal系统工程师",
+        "avatarUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/avatars/12-GameDevelopment/UnrealSystemEngineer/UnrealSystemEngineer.png",
+        "promptUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/experts/12-GameDevelopment/UnrealSystemEngineer/UnrealSystemEngineer_zh.md",
+        "usedAt": 1785206856742,
+        "industryId": "12-GameDevelopment"
+      }
+    ]
+  },
+  "lastUpdated": 1785227816318
+}

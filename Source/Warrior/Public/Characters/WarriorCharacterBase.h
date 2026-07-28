@@ -6,12 +6,18 @@
 #include "GameFramework/Character.h"
 #include "WarriorCharacterBase.generated.h"
 
-UCLASS()
+
+
+UCLASS(Abstract)
 class WARRIOR_API AWarriorCharacterBase : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
 	AWarriorCharacterBase();
+	
+
+
+
 
 };
