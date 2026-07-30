@@ -18,7 +18,7 @@ class WARRIOR_API AWarriorHeroCharacter : public AWarriorCharacterBase
 {
 	GENERATED_BODY()
 public:
-	virtual void BeginPlay() override;
+	AWarriorHeroCharacter();
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 	UPROPERTY(BlueprintReadOnly,EditDefaultsOnly)
 	TObjectPtr<UInputDate> InputDate;

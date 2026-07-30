@@ -11,10 +11,8 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
-void AWarriorHeroCharacter::BeginPlay()
+AWarriorHeroCharacter::AWarriorHeroCharacter()
 {
-	Super::BeginPlay();
-	Debug::print("test frist");
 	//初始化相机和相机悬臂
 	WarriorArm=CreateDefaultSubobject<USpringArmComponent>("WarriorArm");
 	WarriorArm->SetupAttachment(GetRootComponent());
@@ -33,6 +31,8 @@ void AWarriorHeroCharacter::BeginPlay()
 	GetCharacterMovement()->MaxWalkSpeed=400.0f;
 	GetCapsuleComponent()->InitCapsuleSize(42.f,96.f);
 }
+
+
 
 void AWarriorHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
