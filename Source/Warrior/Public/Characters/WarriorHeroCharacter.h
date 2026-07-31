@@ -7,7 +7,6 @@
 #include "WarriorHeroCharacter.generated.h"
 
 struct FInputActionValue;
-class UInputDate;
 class USpringArmComponent;
 class UCameraComponent;
 /**
@@ -19,9 +18,11 @@ class WARRIOR_API AWarriorHeroCharacter : public AWarriorCharacterBase
 	GENERATED_BODY()
 public:
 	AWarriorHeroCharacter();
+
+	//接收控制时
+	virtual void PossessedBy(AController* NewController) override;
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
-	UPROPERTY(BlueprintReadOnly,EditDefaultsOnly)
-	TObjectPtr<UInputDate> InputDate;
+
 private:
 	UPROPERTY(BlueprintReadOnly,VisibleDefaultsOnly,meta=(AllowPrivateAccess="true"))
 	TObjectPtr<UCameraComponent> WarriorCamera;

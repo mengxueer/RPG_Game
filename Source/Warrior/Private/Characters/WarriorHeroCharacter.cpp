@@ -32,6 +32,12 @@ AWarriorHeroCharacter::AWarriorHeroCharacter()
 	GetCapsuleComponent()->InitCapsuleSize(42.f,96.f);
 }
 
+void AWarriorHeroCharacter::PossessedBy(AController* NewController) {
+	Super::PossessedBy(NewController);
+	if (WarriorAbilitySystemComponent&&WarriorAttributeSet) {
+		Debug::print("子类获取GAS成功!");
+	}
+}
 
 
 void AWarriorHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {
