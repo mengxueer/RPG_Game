@@ -20,7 +20,7 @@ AWarriorCharacterBase::AWarriorCharacterBase()
 void AWarriorCharacterBase::PossessedBy(AController* NewController) {
 	Super::PossessedBy(NewController);
 	if (WarriorAbilitySystemComponent) {
-		Debug::print("GAS初始化成功");
+		Debug::print(TEXT("GAS初始化成功"));
 		WarriorAbilitySystemComponent->InitAbilityActorInfo(this,this);
 	}
 }

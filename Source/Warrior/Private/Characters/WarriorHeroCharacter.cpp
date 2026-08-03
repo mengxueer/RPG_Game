@@ -3,18 +3,20 @@
 
 #include "Characters/WarriorHeroCharacter.h"
 #include "EnhancedInputSubsystems.h"
-#include "WarriorDebugHelp.h"
+#include "AbilitySystem/WarriorAbilitySystemComponent.h"
 #include "Component/Warriorinput/WarriorInputComponent.h"
 #include "GameTags/WarriorTag.h"
 #include "Camera/CameraComponent.h"
+#include "Component/Combat/HeroCombatComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "DateAsset/StartUpDate/DataAsset_StartUpDataBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 AWarriorHeroCharacter::AWarriorHeroCharacter()
 {
 	//初始化相机和相机悬臂
-	WarriorArm=CreateDefaultSubobject<USpringArmComponent>("WarriorArm");
+	WarriorArm=CreateDefaultSubobject<USpringArmComponent>(TEXT("WarriorArm"));
 	WarriorArm->SetupAttachment(GetRootComponent());
 	WarriorArm->bUsePawnControlRotation=true;
 
@@ -22,7 +24,7 @@ AWarriorHeroCharacter::AWarriorHeroCharacter()
 	bUseControllerRotationRoll=false;
 	bUseControllerRotationYaw=false;
 	
-	WarriorCamera=CreateDefaultSubobject<UCameraComponent>("WarriorCamera");
+	WarriorCamera=CreateDefaultSubobject<UCameraComponent>(TEXT("WarriorCamera"));
 	WarriorCamera->SetupAttachment(WarriorArm,USpringArmComponent::SocketName);
 	WarriorCamera->bUsePawnControlRotation=false;
 
@@ -30,13 +32,18 @@ AWarriorHeroCharacter::AWarriorHeroCharacter()
 	GetCharacterMovement()->RotationRate=FRotator (0,500.0f,0);
 	GetCharacterMovement()->MaxWalkSpeed=400.0f;
 	GetCapsuleComponent()->InitCapsuleSize(42.f,96.f);
+	
+	HeroCombat=CreateDefaultSubobject<UHeroCombatComponent>(TEXT("CombatComponent"));
 }
 
 void AWarriorHeroCharacter::PossessedBy(AController* NewController) {
 	Super::PossessedBy(NewController);
-	if (WarriorAbilitySystemComponent&&WarriorAttributeSet) {
-		Debug::print("子类获取GAS成功!");
+	// checkf(StartUpDataAsset,TEXT("启动数据为空!!!"))
+	if (UDataAsset_StartUpDataBase* StartUpDataBase=  StartUpDataAsset.LoadSynchronous())
+	{
+		StartUpDataBase->GiveToAbilitiesSysComponent(Cast<UWarriorAbilitySystemComponent>(GetAbilitySystemComponent()));
 	}
+	
 }
 
 

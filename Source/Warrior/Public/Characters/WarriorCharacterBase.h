@@ -8,6 +8,7 @@
 #include "WarriorCharacterBase.generated.h"
 
 
+class UDataAsset_StartUpDataBase;
 class UWarriorAttributeSet;
 class UWarriorAbilitySystemComponent;
 
@@ -25,8 +26,10 @@ public:
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 protected:
 
-	UPROPERTY(BlueprintReadOnly,EditDefaultsOnly)
-	TObjectPtr<UInputDate> InputDate;
+
+	
+	UPROPERTY(EditDefaultsOnly,blueprintReadOnly)
+	TSoftObjectPtr<UDataAsset_StartUpDataBase> StartUpDataAsset;
 	
 	UPROPERTY(VisibleDefaultsOnly,BlueprintReadOnly,Category="AbilitySystem")
 	TObjectPtr<UWarriorAbilitySystemComponent> WarriorAbilitySystemComponent;

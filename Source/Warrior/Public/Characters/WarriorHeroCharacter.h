@@ -6,6 +6,8 @@
 #include "WarriorCharacterBase.h"
 #include "WarriorHeroCharacter.generated.h"
 
+class UHeroCombatComponent;
+class UInputDate;
 struct FInputActionValue;
 class USpringArmComponent;
 class UCameraComponent;
@@ -28,9 +30,22 @@ private:
 	TObjectPtr<UCameraComponent> WarriorCamera;
 	UPROPERTY(BlueprintReadOnly,VisibleDefaultsOnly,meta=(AllowPrivateAccess="true"))
 	TObjectPtr<USpringArmComponent> WarriorArm;
+	
+	UPROPERTY(BlueprintReadOnly,EditDefaultsOnly,meta=(AllowPrivateAccess="true"))
+	TObjectPtr<UInputDate> InputDate;
 
+	//战斗组件
+	
+	UPROPERTY(BlueprintReadOnly,EditDefaultsOnly,meta=(AllowPrivateAccess="true"))
+	TObjectPtr<UHeroCombatComponent> HeroCombat;
+	
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+public:
+	FORCEINLINE UHeroCombatComponent* GetCombatComponent()const
+	{
+		return HeroCombat;
+	};
 };
 
 
