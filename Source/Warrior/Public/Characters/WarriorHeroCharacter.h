@@ -6,6 +6,7 @@
 #include "WarriorCharacterBase.h"
 #include "WarriorHeroCharacter.generated.h"
 
+struct FGameplayTag;
 class UHeroCombatComponent;
 class UInputDate;
 struct FInputActionValue;
@@ -33,7 +34,7 @@ private:
 	
 	UPROPERTY(BlueprintReadOnly,EditDefaultsOnly,meta=(AllowPrivateAccess="true"))
 	TObjectPtr<UInputDate> InputDate;
-
+	
 	//战斗组件
 	
 	UPROPERTY(BlueprintReadOnly,EditDefaultsOnly,meta=(AllowPrivateAccess="true"))
@@ -41,6 +42,12 @@ private:
 	
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+
+	void PushKeyToAbility(
+	const FInputActionValue& Value,
+	FGameplayTag Tag
+);
+	//void PullKeyToAbility(const FGameplayTag& Tag)const;
 public:
 	FORCEINLINE UHeroCombatComponent* GetCombatComponent()const
 	{

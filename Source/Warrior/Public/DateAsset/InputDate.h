@@ -14,6 +14,9 @@ struct FInputTagToAction {
 	FGameplayTag InputTag;
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly)
 	TObjectPtr<UInputAction> InputAction;
+	bool IsValid() const {
+		return InputTag.IsValid();
+	}
 };
 /**
  * 
@@ -29,7 +32,8 @@ public:
 	TObjectPtr<UInputMappingContext> InputMappingContext;
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly)
 	TArray<FInputTagToAction> InputTagToAction;
-
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly)
+	TArray<FInputTagToAction> AbilityAction;
 
 	 UInputAction* FindTagAction(const FGameplayTag &InputTag)const;
 };

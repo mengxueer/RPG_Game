@@ -4,6 +4,8 @@
 #include "AbilitySystem/GamePlayAbility/WarriorGameplayAbilityBase.h"
 
 #include "AbilitySystemComponent.h"
+#include "AbilitySystem/WarriorAbilitySystemComponent.h"
+#include "Component/Combat/HeroCombatComponent.h"
 
 void UWarriorGameplayAbilityBase::OnGiveAbility(const FGameplayAbilityActorInfo* ActorInfo,
                                                 const FGameplayAbilitySpec& Spec) {
@@ -27,4 +29,12 @@ void UWarriorGameplayAbilityBase::EndAbility(const FGameplayAbilitySpecHandle Ha
 		}
 	}
 	
+}
+
+UHeroCombatComponent* UWarriorGameplayAbilityBase::GetPawnCombatComponentFromActorInfo() const {
+	return GetAvatarActorFromActorInfo()->FindComponentByClass<UHeroCombatComponent>();
+}
+
+UWarriorAbilitySystemComponent* UWarriorGameplayAbilityBase::GetWarriorAbilitySystemComponentFromActorInfo() const {
+     return Cast<UWarriorAbilitySystemComponent>(GetCurrentActorInfo()->AbilitySystemComponent);
 }

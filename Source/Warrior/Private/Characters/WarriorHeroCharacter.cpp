@@ -3,6 +3,7 @@
 
 #include "Characters/WarriorHeroCharacter.h"
 #include "EnhancedInputSubsystems.h"
+#include "WarriorDebugHelp.h"
 #include "AbilitySystem/WarriorAbilitySystemComponent.h"
 #include "Component/Warriorinput/WarriorInputComponent.h"
 #include "GameTags/WarriorTag.h"
@@ -68,6 +69,11 @@ void AWarriorHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	UWarriorInputComponent* WarriorInputComponent=Cast<UWarriorInputComponent>(PlayerInputComponent);
 	 WarriorInputComponent->BindTagToAction(InputDate,warriorTag::Input_Move,ETriggerEvent::Triggered,this,&AWarriorHeroCharacter::Move);
 	WarriorInputComponent->BindTagToAction(InputDate,warriorTag::Input_Look,ETriggerEvent::Triggered,this,&AWarriorHeroCharacter::Look);
+	//按键绑定技能
+	WarriorInputComponent->BindAbilityAction(InputDate,
+		this,
+		&AWarriorHeroCharacter::PushKeyToAbility,
+		&AWarriorHeroCharacter::PushKeyToAbility);
 }
 
 void AWarriorHeroCharacter::Move(const FInputActionValue& Value) {
@@ -89,3 +95,12 @@ void AWarriorHeroCharacter::Look(const FInputActionValue& Value) {
 	AddControllerYawInput(InputAxis.X);
 	AddControllerPitchInput(InputAxis.Y);
 }
+
+void AWarriorHeroCharacter::PushKeyToAbility(const FInputActionValue& Value, FGameplayTag Tag) {
+	Debug::print(Tag.GetTagName().ToString());
+}
+
+
+
+// void AWarriorHeroCharacter::PullKeyToAbility(const FGameplayTag& Tag) const {
+// }

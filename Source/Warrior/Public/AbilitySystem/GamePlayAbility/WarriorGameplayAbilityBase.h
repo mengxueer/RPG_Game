@@ -6,6 +6,9 @@
 #include "Abilities/GameplayAbility.h"
 #include "WarriorGameplayAbilityBase.generated.h"
 
+class UWarriorAbilitySystemComponent;
+class UHeroCombatComponent;
+
 UENUM()
 enum class EExternAbilityActivePolicy:uint8
 {
@@ -28,4 +31,10 @@ public:
 protected:
 	UPROPERTY(EditDefaultsOnly)
 	EExternAbilityActivePolicy ExternAbilityActivePolicy=EExternAbilityActivePolicy::OnTriggered;
+	
+	UFUNCTION(BlueprintPure)
+	UHeroCombatComponent* GetPawnCombatComponentFromActorInfo() const;
+	
+	UFUNCTION(BlueprintPure)
+	UWarriorAbilitySystemComponent* GetWarriorAbilitySystemComponentFromActorInfo() const;
 };
