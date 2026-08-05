@@ -43,10 +43,8 @@ private:
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 
-	void PushKeyToAbility(
-	const FInputActionValue& Value,
-	FGameplayTag Tag
-);
+	void Input_AbiityInputPressed(FGameplayTag Tag);
+	void Input_AbiityInputRrelad(FGameplayTag Tag);
 	//void PullKeyToAbility(const FGameplayTag& Tag)const;
 public:
 	FORCEINLINE UHeroCombatComponent* GetCombatComponent()const

@@ -3,7 +3,6 @@
 
 #include "Characters/WarriorHeroCharacter.h"
 #include "EnhancedInputSubsystems.h"
-#include "WarriorDebugHelp.h"
 #include "AbilitySystem/WarriorAbilitySystemComponent.h"
 #include "Component/Warriorinput/WarriorInputComponent.h"
 #include "GameTags/WarriorTag.h"
@@ -72,8 +71,8 @@ void AWarriorHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	//按键绑定技能
 	WarriorInputComponent->BindAbilityAction(InputDate,
 		this,
-		&AWarriorHeroCharacter::PushKeyToAbility,
-		&AWarriorHeroCharacter::PushKeyToAbility);
+		&AWarriorHeroCharacter::Input_AbiityInputPressed,
+		&AWarriorHeroCharacter::Input_AbiityInputRrelad);
 }
 
 void AWarriorHeroCharacter::Move(const FInputActionValue& Value) {
@@ -96,11 +95,14 @@ void AWarriorHeroCharacter::Look(const FInputActionValue& Value) {
 	AddControllerPitchInput(InputAxis.Y);
 }
 
-void AWarriorHeroCharacter::PushKeyToAbility(const FInputActionValue& Value, FGameplayTag Tag) {
-	Debug::print(Tag.GetTagName().ToString());
+void AWarriorHeroCharacter::Input_AbiityInputPressed(FGameplayTag Tag)
+{
+}
+
+void AWarriorHeroCharacter::Input_AbiityInputRrelad(FGameplayTag Tag)
+{
 }
 
 
 
-// void AWarriorHeroCharacter::PullKeyToAbility(const FGameplayTag& Tag) const {
-// }
+
