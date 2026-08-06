@@ -41,6 +41,7 @@ void AWarriorHeroCharacter::PossessedBy(AController* NewController) {
 	// checkf(StartUpDataAsset,TEXT("启动数据为空!!!"))
 	if (UDataAsset_StartUpDataBase* StartUpDataBase=  StartUpDataAsset.LoadSynchronous())
 	{
+		//授予能力
 		StartUpDataBase->GiveToAbilitiesSysComponent(Cast<UWarriorAbilitySystemComponent>(GetAbilitySystemComponent()));
 	}
 	
@@ -64,15 +65,16 @@ void AWarriorHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 			}
 		}
 	 }
-	
+
+		//按键绑定按键输入
 	UWarriorInputComponent* WarriorInputComponent=Cast<UWarriorInputComponent>(PlayerInputComponent);
 	 WarriorInputComponent->BindTagToAction(InputDate,warriorTag::Input_Move,ETriggerEvent::Triggered,this,&AWarriorHeroCharacter::Move);
 	WarriorInputComponent->BindTagToAction(InputDate,warriorTag::Input_Look,ETriggerEvent::Triggered,this,&AWarriorHeroCharacter::Look);
-	//按键绑定技能
+
 	WarriorInputComponent->BindAbilityAction(InputDate,
 		this,
-		&AWarriorHeroCharacter::Input_AbiityInputPressed,
-		&AWarriorHeroCharacter::Input_AbiityInputRrelad);
+		&AWarriorHeroCharacter::Input_AbilityInputPressed,
+		&AWarriorHeroCharacter::Input_AbilityInputReleased);
 }
 
 void AWarriorHeroCharacter::Move(const FInputActionValue& Value) {
@@ -95,13 +97,15 @@ void AWarriorHeroCharacter::Look(const FInputActionValue& Value) {
 	AddControllerPitchInput(InputAxis.Y);
 }
 
-void AWarriorHeroCharacter::Input_AbiityInputPressed(FGameplayTag Tag)
-{
+void AWarriorHeroCharacter::Input_AbilityInputPressed( FGameplayTag Tag) {
+	WarriorAbilitySystemComponent->OnAbilityInputPressed( Tag);
 }
 
-void AWarriorHeroCharacter::Input_AbiityInputRrelad(FGameplayTag Tag)
-{
+void AWarriorHeroCharacter::Input_AbilityInputReleased( FGameplayTag Tag) {
+	WarriorAbilitySystemComponent->OnAbilityInputReleased(Tag);
 }
+
+
 
 
 

@@ -43,9 +43,9 @@ private:
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 
-	void Input_AbiityInputPressed(FGameplayTag Tag);
-	void Input_AbiityInputRrelad(FGameplayTag Tag);
-	//void PullKeyToAbility(const FGameplayTag& Tag)const;
+	void Input_AbilityInputPressed( FGameplayTag Tag);
+	void Input_AbilityInputReleased( FGameplayTag Tag);
+	
 public:
 	FORCEINLINE UHeroCombatComponent* GetCombatComponent()const
 	{

@@ -11,4 +11,6 @@ namespace warriorTag {
 	
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Input_Equine_Axe,"Input.Equine.Axe","装备武器按键")
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Input_NonEquine_Axe,"Input.NonEquine.Axe","装备武器按键")
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Player_Event_Equine_Axe,"Player.Event.Equine.Axe","装备武器事件")
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Player_Event_NonEquine_Axe,"Player.Event.NonEquine.Axe","卸下武器事件")
 }

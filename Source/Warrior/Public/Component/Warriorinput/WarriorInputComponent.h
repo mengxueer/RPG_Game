@@ -41,7 +41,7 @@ void UWarriorInputComponent::BindAbilityAction(UInputDate* InputActionConfig,
 	checkf(InputActionConfig,TEXT("在warriorinputcomponent组件下输入文件不存在配置文件"));
 	for (const FInputTagToAction &AbilityAction : InputActionConfig->AbilityAction) {
 		if (AbilityAction.IsValid()) {
-			 BindAction(AbilityAction.InputAction,ETriggerEvent::Started,ObjectClass,FunctionName,AbilityAction.InputTag);
+			 BindAction(AbilityAction.InputAction,ETriggerEvent::Started,ObjectClass,FunctionName, AbilityAction.InputTag);
 			 BindAction(AbilityAction.InputAction,ETriggerEvent::Completed,ObjectClass,PullFunName,AbilityAction.InputTag);
 		}
 	}
