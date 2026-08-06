@@ -44,7 +44,7 @@ private:
 	void Look(const FInputActionValue& Value);
 
 	void Input_AbilityInputPressed( FGameplayTag Tag);
-	void Input_AbilityInputReleased( FGameplayTag Tag);
+	void Input_AbilityInputReleased( FGameplayTag Tag) ;
 	
 public:
 	FORCEINLINE UHeroCombatComponent* GetCombatComponent()const

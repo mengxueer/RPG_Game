@@ -24,7 +24,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	AWarriorWeaponBase* GetToWeaponByTag(const FGameplayTag &Tag)const;
 	
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadWrite)
 	FGameplayTag CurrentTag;
 	
 	UFUNCTION(BlueprintCallable)

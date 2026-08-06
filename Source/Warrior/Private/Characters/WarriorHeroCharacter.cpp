@@ -38,7 +38,7 @@ AWarriorHeroCharacter::AWarriorHeroCharacter()
 
 void AWarriorHeroCharacter::PossessedBy(AController* NewController) {
 	Super::PossessedBy(NewController);
-	// checkf(StartUpDataAsset,TEXT("启动数据为空!!!"))
+
 	if (UDataAsset_StartUpDataBase* StartUpDataBase=  StartUpDataAsset.LoadSynchronous())
 	{
 		//授予能力
@@ -101,7 +101,8 @@ void AWarriorHeroCharacter::Input_AbilityInputPressed( FGameplayTag Tag) {
 	WarriorAbilitySystemComponent->OnAbilityInputPressed( Tag);
 }
 
-void AWarriorHeroCharacter::Input_AbilityInputReleased( FGameplayTag Tag) {
+void AWarriorHeroCharacter::Input_AbilityInputReleased( FGameplayTag Tag) 
+{
 	WarriorAbilitySystemComponent->OnAbilityInputReleased(Tag);
 }
 

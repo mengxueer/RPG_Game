@@ -4,7 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "WarriorWeaponBase.h"
+#include "WarriorStruct/WarriorStructTypes.h"
 #include "WarriorHeroWeapon.generated.h"
+
+
 
 
 UCLASS()
@@ -15,5 +18,7 @@ public:
 
 	AWarriorHeroWeapon();
 
-
+protected:
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="weapon")
+	FWarriorHeroWeaponData WeaponDate;
 };
