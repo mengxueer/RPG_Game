@@ -6,6 +6,7 @@
 #include "AbilitySystemComponent.h"
 #include "WarriorAbilitySystemComponent.generated.h"
 
+struct FWarriorHeroAbility;
 /**
  * 
  */
@@ -17,4 +18,7 @@ class WARRIOR_API UWarriorAbilitySystemComponent : public UAbilitySystemComponen
 public:
 	void OnAbilityInputPressed(const FGameplayTag&  InputTag);
 	void OnAbilityInputReleased(const FGameplayTag&  InputTag);
+	
+	UFUNCTION(BlueprintCallable)
+	void GiveHeroAbility(const TArray<FWarriorHeroAbility>& Ability,int32 Level);
 };

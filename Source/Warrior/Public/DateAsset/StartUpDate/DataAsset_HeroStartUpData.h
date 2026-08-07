@@ -11,18 +11,9 @@
 /**
  * 
  */
-USTRUCT(BlueprintType)
-struct FWarriorHeroAbility
-{
-	GENERATED_BODY()
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	FGameplayTag InputTag;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)	
-	TSubclassOf<UWarriorGameplayAbilityBase> GameplayAbility;
-	
-	bool IsValid()const;
-	
-};
+
+struct FWarriorHeroAbility;
+
 UCLASS()
 class WARRIOR_API UDataAsset_HeroStartUpData : public UDataAsset_StartUpDataBase
 {
